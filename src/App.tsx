@@ -2,14 +2,11 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.scss";
-import { Dropdown } from "@mui/base/Dropdown";
-import { MenuButton } from "@mui/base/MenuButton";
-import { Menu } from "@mui/base/Menu";
-import { MenuItem } from "@mui/base/MenuItem";
+import { PostComponent } from './comps/posts';
+import { samplePosts } from './data/sampleposts';
 
 function App() {
   const [count, setCount] = useState(1);
-
 
   const createHandleMenuClick = (menuItem: string) => {
     return () => {
@@ -23,6 +20,7 @@ function App() {
         <div className="header_container">
           <div className="header_name_container">
             <h1>Gage Willette's</h1>
+            {/*
             <Dropdown
             >
               <MenuButton>_______</MenuButton>
@@ -41,7 +39,7 @@ function App() {
                   YouTube
                 </MenuItem>
               </Menu>
-            </Dropdown>
+              </Dropdown>*/}
             <h1>Blog</h1>
           </div>
           <div className="header_button_container">
@@ -52,6 +50,12 @@ function App() {
         </div>
 
         <hr className="bottom_linereak"></hr>
+      </div>
+
+      <div className="body">
+        {samplePosts.map((post) => (
+          <PostComponent key={post.id} post={post} />
+        ))}
       </div>
     </>
   );
